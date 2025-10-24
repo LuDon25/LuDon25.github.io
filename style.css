@@ -313,20 +313,11 @@ nav ul li a:hover::after {
 }
 
 /*------Contact------*/
-
-.p-CV {
-  text-align: center;
-  font-size: 25px;
-  margin-top: 20px;
-  font-family: "Arial", sans-serif; /* Sets a clear and readable font */
-  font-size: 16px; /* Adjust for optimal readability */
-  line-height: 1.6; /* Improves line spacing for better flow */
-  color: #333; /* Sets a dark, readable text color */
-  margin-bottom: 1em; /* Adds space between paragraphs */
-  max-width: 700px; /* Limits paragraph width for comfortable reading */
-  margin-left: auto; /* Centers the paragraph if max-width is applied */
-  margin-right: auto; /* Centers the paragraph if max-width is applied */
-  padding: 10 15px; /* Adds internal spacing on the sides, especially for smaller screens */
+.Cv-img2 {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
 #contactMe {
