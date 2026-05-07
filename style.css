@@ -55,6 +55,37 @@ nav a:hover {
   padding: 40px;
 }
 
+/* Availability Status */
+.statusBox {
+  display: block;
+}
+
+.logoBox {
+  display: block;
+}
+
+.logoi {
+  border-radius: 50px;
+  width: 45px;
+  height: 45px;
+}
+
+.greenSwitch {
+  color: green;
+  font-size: 30px;
+}
+
+.orangeSwitch {
+  color: orange;
+}
+
+.blackSwitch {
+  color: black;
+}
+
+.textSwitch {
+  color: green;
+}
 /* Carousel */
 .carousel {
   width: 100%;
@@ -223,6 +254,10 @@ nav a:hover {
 
 .tab-contents.active-tab {
   display: block;
+}
+
+.italiano {
+  font-style: italic;
 }
 
 /*------------------Services----------------*/
