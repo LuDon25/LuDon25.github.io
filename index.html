@@ -4,6 +4,10 @@
     <title>Home</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/png" href="./images/favi1.png" />
   </head>
@@ -42,7 +46,7 @@
             <img src="images/p5.jpg" alt="Profile" />
             <h1>Hello friend! I'm Ludon</h1>
             <p>
-              Cybersecurity analyst and Software developer. My professonal
+              Cybersecurity analyst and Software developer. My professional
               skills at your disposal.
             </p>
           </div>
@@ -51,7 +55,7 @@
             <img src="images/whatICouldSolve.avif" alt="Skills" />
             <h1>Programming Skills</h1>
             <p>
-              HTML, CSS, JavaScript, React, UI/UX, SQL, Django, CyberSecurity
+              C, HTML, CSS, JavaScript, React, UI/UX, SQL, Django, CyberSecurity
             </p>
           </div>
 
@@ -79,92 +83,237 @@
       </div>
     </section>
 
-    <span></span>
+    <span>
+      <div class="portfolio-divider"></div>
+    </span>
+
     <!------About section------>
     <div id="about">
       <div class="container">
-        <div class="row">
-          <div class="about-col-1">
-            <img src="images/meCoding.jpg" />
-            <p class="img-text">
-              •C •Html/css •JavaScript •React •Python •Django •SQL
-            </p>
+        <div class="aboutme-container">
+          <!-- LEFT COLUMN -->
+
+          <div class="aboutme-left-panel">
+            <div class="aboutme-card">
+              <div class="aboutme-top-grid">
+                <!-- SKILLS -->
+
+                <div class="aboutme-box">
+                  <h3 contenteditable="true">Programming Skills</h3>
+
+                  <div class="aboutme-icons">
+                    <div
+                      class="aboutme-icon-item"
+                      data-title="Python"
+                      data-desc="Backend development, AI, automation and scripting."
+                    >
+                      <i class="fab fa-python"></i>
+                    </div>
+
+                    <div
+                      class="aboutme-icon-item"
+                      data-title="JavaScript"
+                      data-desc="Frontend development and web applications."
+                    >
+                      <i class="fab fa-js"></i>
+                    </div>
+
+                    <div
+                      class="aboutme-icon-item"
+                      data-title="HTML5"
+                      data-desc="Semantic and accessible web markup."
+                    >
+                      <i class="fab fa-html5"></i>
+                    </div>
+
+                    <div
+                      class="aboutme-icon-item"
+                      data-title="CSS3"
+                      data-desc="Modern responsive styling and animations."
+                    >
+                      <i class="fab fa-css3-alt"></i>
+                    </div>
+
+                    <div
+                      class="aboutme-icon-item"
+                      data-title="React"
+                      data-desc="Component-driven frontend development."
+                    >
+                      <i class="fab fa-react"></i>
+                    </div>
+
+                    <div
+                      class="aboutme-icon-item"
+                      data-title="Node.js"
+                      data-desc="Backend APIs and server-side JavaScript."
+                    >
+                      <i class="fab fa-node-js"></i>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- CERTIFICATIONS -->
+
+                <div class="aboutme-box">
+                  <h3 contenteditable="true">Certifications</h3>
+
+                  <div class="aboutme-icons">
+                    <div
+                      class="aboutme-icon-item"
+                      data-title="Cybersecurity"
+                      data-desc="cs50 Cybersecurity by Harvard and CISCO Cybersecurity Essentials."
+                    >
+                      <i class="fas fa-shield-alt"></i>
+                    </div>
+
+                    <div
+                      class="aboutme-icon-item"
+                      data-title="CISCO Ethical Hacking"
+                      data-desc="Penetration testing and security assessments."
+                    >
+                      <i class="fas fa-user-secret"></i>
+                    </div>
+
+                    <div
+                      class="aboutme-icon-item"
+                      data-title="Web Development"
+                      data-desc="cs50 Web Development by Harvard."
+                    >
+                      <i class="fas fa-code"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- WORKED WITH -->
+
+              <div class="aboutme-box aboutme-workedwith">
+                <h3 contenteditable="true">Worked With</h3>
+
+                <div class="aboutme-icons">
+                  <div
+                    class="aboutme-icon-item"
+                    data-title="TeQue"
+                    data-desc="Online Cyberspace and Tech Solutions."
+                  >
+                    <i class="fas fa-store"></i>
+                  </div>
+
+                  <div
+                    class="aboutme-icon-item"
+                    data-title="Bloom"
+                    data-desc="Marketting Bloom Soaps and Detergents."
+                  >
+                    <i class="fas fa-building"></i>
+                  </div>
+
+                  <div
+                    class="aboutme-icon-item"
+                    data-title="Router"
+                    data-desc="Transport and Logistics."
+                  >
+                    <i class="fas fa-network-wired"></i>
+                  </div>
+
+                  <div
+                    class="aboutme-icon-item"
+                    data-title="Cloud"
+                    data-desc="Cloud infrastructure deployment."
+                  >
+                    <i class="fas fa-cloud"></i>
+                  </div>
+
+                  <div
+                    class="aboutme-icon-item"
+                    data-title="Servers"
+                    data-desc="Server administration and maintenance."
+                  >
+                    <i class="fas fa-server"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="about-col-2">
-            <h1 class="subtitle">About me</h1>
-            <p style="font-family: &quot;Times New Roman&quot;, Times, serif">
-              I'm a software developer and a Cybersecurity Analyst. I enjoy
-              working with other professionals towards a common goal and achieve
-              the best in the field. Contact me and let's work together to
-              realise and utilise capabilities presented by technology.
+
+          <!-- RIGHT COLUMN -->
+
+          <div class="aboutme-content">
+            <h1>About Me</h1>
+
+            <p class="aboutme-intro">
+              I'm a software developer and Cybersecurity Analyst. I enjoy
+              working with professionals towards common goals and building
+              secure, scalable technology solutions.
             </p>
-            <div class="tab-titles">
-              <p class="tab-links active-link" onclick="opentab('skills')">
+
+            <div class="aboutme-tabs">
+              <button class="aboutme-tab active" data-tab="skills">
                 Skills
-              </p>
-              <p class="tab-links" onclick="opentab('experience')">
+              </button>
+
+              <button class="aboutme-tab" data-tab="experience">
                 Experience
-              </p>
-              <p class="tab-links" onclick="opentab('education')">Education</p>
-            </div>
-            <div class="tab-contents active-tab" id="skills">
-              <ul>
-                <li>
-                  <span>UI/UX</span>
-                  <br />
-                  Designing App/Web interfaces
-                </li>
-                <li>
-                  <span>Web/App Development</span>
-                  <br />
-                  Developing Web/App applications that matches your
-                  specifications.
-                </li>
-                <li>
-                  <span>CyberSecurity</span>
-                  <br />
-                  Experienced in securing accounts, data and systems.
-                </li>
-              </ul>
+              </button>
+
+              <button class="aboutme-tab" data-tab="education">
+                Education
+              </button>
             </div>
 
-            <div class="tab-contents" id="education">
-              <ul>
-                <li>
-                  <span>2025</span><br />
-                  CS50 Cybersecurity and Web Development by Harvard.
-                </li>
-                <li>
-                  <span>2022 - Current</span><br />Pursuing BIT at the CUK
-                </li>
-                <li>
-                  <span>2020 - 2022</span><br />Internship at kamadawa.org, NGO.
-                </li>
-                <li><span>2016 - 2019</span><br />Highschool Diploma</li>
-              </ul>
+            <!-- SKILLS -->
+
+            <div class="aboutme-tab-content active" id="skills">
+              <div class="aboutme-entry">
+                <h4>UI/UX Design</h4>
+                <p>Designing intuitive web and mobile interfaces.</p>
+              </div>
+
+              <div class="aboutme-entry">
+                <h4>Web Development</h4>
+                <p>Building modern scalable web applications.</p>
+              </div>
+
+              <div class="aboutme-entry">
+                <h4>Cybersecurity</h4>
+                <p>Protecting systems, data and infrastructure.</p>
+              </div>
             </div>
 
-            <div class="tab-contents" id="experience">
-              <ul>
-                <li>
-                  <span>2022 - 25</span><br />Worked at Router and Royallustre
-                  platforms
-                </li>
-                <li>
-                  <span class="italiano">Duties</span><br />Software developer
-                </li>
+            <!-- EXPERIENCE -->
 
-                <li>
-                  <span>2018 - 2019</span><br />Worked at the BaseCentral Cyber
-                  cafe
-                </li>
-                <li>
-                  <span class="italiano">Duties</span><br />Frontend web admin,
-                  trainer and customer care
-                </li>
-              </ul>
+            <div class="aboutme-tab-content" id="experience">
+              <div class="aboutme-entry">
+                <h4>Senior Developer</h4>
+                <p>Building enterprise-grade applications and APIs.</p>
+              </div>
+
+              <div class="aboutme-entry">
+                <h4>Cybersecurity Analyst</h4>
+                <p>Risk assessment and vulnerability testing.</p>
+              </div>
+            </div>
+
+            <!-- EDUCATION -->
+
+            <div class="aboutme-tab-content" id="education">
+              <div class="aboutme-entry">
+                <h4>Bachelor of Science Information Technology</h4>
+                <p>Software Engineering & Cybersecurity.</p>
+              </div>
             </div>
           </div>
+        </div>
+
+        <!-- MODAL -->
+
+        <div class="aboutme-overlay"></div>
+
+        <div class="aboutme-modal">
+          <button class="aboutme-close-btn">&times;</button>
+
+          <h2 id="aboutme-modal-title"></h2>
+
+          <p id="aboutme-modal-desc"></p>
         </div>
       </div>
     </div>
@@ -271,6 +420,10 @@
               <button type="submit" id="submitbtn" class="btn">
                 Click to submit
               </button>
+              <h5 style="color: red">
+                ...FIXING THE Messaging channel, Kindly Contact me Directly on
+                email via the address on the card.
+              </h5>
             </form>
             <span id="msg"></span>
           </div>
