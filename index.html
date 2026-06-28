@@ -8,6 +8,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/png" href="./images/favi1.png" />
   </head>
@@ -54,14 +58,12 @@
           <div class="slide">
             <img src="images/whatICouldSolve.avif" alt="Skills" />
             <h1>Programming Skills</h1>
-            <p>
-              C, HTML, CSS, JavaScript, React, UI/UX, SQL, Django, CyberSecurity
-            </p>
+            <p>C, Html&css, JavaScript, UI/UX, SQL, Python, CyberSecurity</p>
           </div>
 
           <div class="slide">
             <img src="images/3d.jpg" alt="Skills" />
-            <h1>...3D Modeling & Prototyping</h1>
+            <h1>...Prototyping</h1>
             <p>3D Modeling, Prototyping, system design and IoT integrations.</p>
           </div>
 
@@ -69,8 +71,8 @@
             <img src="images/p3.jpg" alt="Projects" />
             <h1>Projects and experience</h1>
             <p>
-              E-commerce websites and marketting, Mobile Apps, Cybersecurity,
-              creative designs and and Research.
+              E-commerce and SaaS Applications, Cybersecurity, creative designs
+              and and Research.
             </p>
           </div>
 
@@ -99,7 +101,7 @@
                 <!-- SKILLS -->
 
                 <div class="aboutme-box">
-                  <h3 contenteditable="true">Programming Skills</h3>
+                  <h3>Programming Skills</h3>
 
                   <div class="aboutme-icons">
                     <div
@@ -155,7 +157,7 @@
                 <!-- CERTIFICATIONS -->
 
                 <div class="aboutme-box">
-                  <h3 contenteditable="true">Certifications</h3>
+                  <h3>Certifications</h3>
 
                   <div class="aboutme-icons">
                     <div
@@ -188,7 +190,7 @@
               <!-- WORKED WITH -->
 
               <div class="aboutme-box aboutme-workedwith">
-                <h3 contenteditable="true">Worked With</h3>
+                <h3>Worked With</h3>
 
                 <div class="aboutme-icons">
                   <div
@@ -197,14 +199,6 @@
                     data-desc="Online Cyberspace and Tech Solutions."
                   >
                     <i class="fas fa-store"></i>
-                  </div>
-
-                  <div
-                    class="aboutme-icon-item"
-                    data-title="Bloom"
-                    data-desc="Marketting Bloom Soaps and Detergents."
-                  >
-                    <i class="fas fa-building"></i>
                   </div>
 
                   <div
@@ -269,7 +263,7 @@
               </div>
 
               <div class="aboutme-entry">
-                <h4>Web Development</h4>
+                <h4>Web/App Development</h4>
                 <p>Building modern scalable web applications.</p>
               </div>
 
@@ -283,7 +277,7 @@
 
             <div class="aboutme-tab-content" id="experience">
               <div class="aboutme-entry">
-                <h4>Senior Developer</h4>
+                <h4>Software Development</h4>
                 <p>Building enterprise-grade applications and APIs.</p>
               </div>
 
@@ -317,6 +311,10 @@
         </div>
       </div>
     </div>
+
+    <span>
+      <div class="portfolio-divider2"></div>
+    </span>
 
     <!------Services------>
     <div id="services">
@@ -397,38 +395,116 @@
     </div>
 
     <!------contact------>
-    <div id="contact">
-      <div class="container">
-        <div class="row">
+    <div class="container">
+      <section id="contact">
+        <div class="contact-card">
+          <!-- LEFT PANEL -->
+
           <div class="contact-left">
-            <img id="contactMe" src="images/businessCard.png" alt="" />
-          </div>
-          <div class="contact-right">
-            <form name="submit-to-google-sheet">
-              <input type="text" name="Name" placeholder="Your name" required />
-              <input
-                type="email"
-                name="email"
-                placeholder="Your email"
-                required
-              />
-              <textarea
-                name="Message"
-                row="6"
-                placeholder="Your Message"
-              ></textarea>
-              <button type="submit" id="submitbtn" class="btn">
-                Click to submit
+            <h3>Contact Me</h3>
+
+            <p>Let's build something amazing together.</p>
+
+            <form id="contactForm">
+              <div class="input-group">
+                <i class="fa-regular fa-user"></i>
+                <input type="text" id="name" placeholder="Your Name" required />
+              </div>
+
+              <div class="input-group">
+                <i class="fa-regular fa-envelope"></i>
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="Your Email"
+                  required
+                />
+              </div>
+
+              <div class="input-group">
+                <i class="fa-solid fa-pencil"></i>
+                <input
+                  type="text"
+                  id="subject"
+                  placeholder="Subject"
+                  required
+                />
+              </div>
+
+              <div class="input-group">
+                <i class="fa-regular fa-comment"></i>
+                <textarea
+                  id="message"
+                  placeholder="Your Message"
+                  required
+                ></textarea>
+              </div>
+
+              <div class="captcha-placeholder">Cloudflare Turnstile</div>
+
+              <button type="submit">
+                <i class="fa-solid fa-paper-plane"></i>
+                Send Message
               </button>
-              <h5 style="color: red">
-                ...FIXING THE Messaging channel, Kindly Contact me Directly on
-                email via the address on the card.
-              </h5>
             </form>
-            <span id="msg"></span>
+          </div>
+
+          <!-- RIGHT PANEL -->
+
+          <div class="contact-right">
+            <div class="contact-item">
+              <div class="icon">
+                <i class="fa-regular fa-comment-dots"></i>
+              </div>
+
+              <div>
+                <h4>Get In Touch</h4>
+                <p>I usually reply within 24 hours.</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="icon">
+                <i class="fa-regular fa-envelope"></i>
+              </div>
+
+              <div>
+                <h4>Email</h4>
+                <p>beulah.ludon1@gmail.com</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="icon">
+                <i class="fa-regular fa-clock"></i>
+              </div>
+
+              <div>
+                <h4>Availability</h4>
+                <p>Monday to Sarturday</p>
+              </div>
+            </div>
+
+            <hr />
+
+            <h4>Follow Me</h4>
+
+            <p>Let's connect on social media.</p>
+
+            <div class="social-links">
+              <a href="#"><i class="fab fa-x-twitter"></i></a>
+
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+
+              <a href="#"><i class="fab fa-github"></i></a>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
+      <h3 style="color: #ef4444">
+        Fixing the form...Kindly contact me directly at
+        <span style="color: #000">beulah.ludon1@gmail.com</span>
+      </h3>
     </div>
 
     <script src="main.js"></script>

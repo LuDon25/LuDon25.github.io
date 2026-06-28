@@ -177,6 +177,15 @@ nav a:hover {
   background-color: black;
 }
 
+.portfolio-divider2 {
+  width: 240px;
+  height: 2px;
+
+  margin: 10px auto;
+  margin-bottom: 40px;
+  background-color: black;
+}
+
 /*------------------About--------------------*/
 .aboutme-container {
   display: flex;
@@ -280,14 +289,14 @@ nav a:hover {
 .aboutme-content h1 {
   font-size: 4rem;
   color: #111;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .aboutme-intro {
   max-width: 800px;
-  line-height: 1.8;
+  line-height: 1.4;
   color: #444;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .aboutme-tabs {
@@ -430,7 +439,7 @@ nav a:hover {
   }
 
   .aboutme-content h1 {
-    font-size: 3rem;
+    font-size: 2rem;
   }
 }
 
@@ -568,81 +577,313 @@ nav a:hover {
   background: rgb(226, 168, 60);
   color: black;
 }
+/* ===================================================
+   CONTACT SECTION
+   Scoped only to #contact
+=================================================== */
 
-/*------Contact------*/
-#contactMe {
-  width: 290px;
-  margin-right: auto;
-  margin-left: auto;
-  display: block;
-  height: 170px;
-  margin-top: 15px;
-  border-radius: 5px;
-}
 #contact {
-  margin-top: 30px;
-}
-.contact-left {
-  flex-basis: 40%;
-}
-
-.contact-right {
-  flex-basis: 60%;
-}
-
-.contact-left h1 {
-  font-size: 55px;
-  color: black;
-}
-
-.contact-left p {
-  margin-top: 30px;
-  color: black;
-  font-size: 20px;
-}
-
-.contact-right form {
   width: 100%;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding: 10px 0;
 }
 
-form input,
-form textarea {
+/* ================= CARD ================= */
+
+#contact .contact-card {
   width: 100%;
-  border: 0;
-  outline: none;
-  background: #262626;
-  padding: 15px;
-  margin: 15px 0;
-  color: #f1f1f1;
-  font-size: 18px;
-  border-radius: 6px;
+
+  max-width: 1080px;
+
+  display: grid;
+
+  grid-template-columns: 1.6fr 1fr;
+
+  background: #111827;
+
+  border: 1px solid #28364a;
+
+  border-radius: 14px;
+
+  overflow: hidden;
+
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
 }
 
-/* Default state of the button*/
-#submitbtn {
-  background-color: rgb(93, 89, 83);
-  margin: 5px auto;
-  display: block;
+/* ================= LEFT ================= */
+
+#contact .contact-left {
+  padding: 22px;
+}
+
+#contact .contact-left h3 {
+  color: #fff;
+
+  margin-bottom: 4px;
+
+  font-size: 1.45rem;
+}
+
+#contact .contact-left > p {
+  color: #9ca8b8;
+
+  font-size: 0.82rem;
+
+  margin-bottom: 18px;
+}
+
+/* ================= FORM ================= */
+
+#contact #contactForm {
+  display: flex;
+
+  flex-direction: column;
+}
+
+#contact .input-group {
+  position: relative;
+
+  margin-bottom: 10px;
+}
+
+#contact .input-group i {
+  position: absolute;
+
+  left: 15px;
+
+  top: 14px;
+
+  color: #718096;
+}
+
+#contact .input-group input,
+#contact .input-group textarea {
+  width: 100%;
+
+  background: #192332;
+
+  border: 1px solid #304055;
+
+  border-radius: 8px;
+
   color: white;
-  padding: 10px 20px;
+
+  outline: none;
+
+  padding: 10px 14px 10px 42px;
+
+  box-sizing: border-box;
+}
+
+#contact .input-group input {
+  height: 42px;
+}
+
+#contact .input-group textarea {
+  height: 90px;
+
+  resize: none;
+}
+
+#contact .input-group input:focus,
+#contact .input-group textarea:focus {
+  border-color: #22c55e;
+}
+
+/* ================= CAPTCHA ================= */
+
+#contact .captcha-placeholder {
+  height: 42px;
+
+  border: 1px dashed #556577;
+
+  border-radius: 8px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  color: #94a3b8;
+
+  margin: 10px 0 14px;
+
+  font-size: 0.82rem;
+}
+
+/* ================= BUTTON ================= */
+
+#contact button {
+  height: 44px;
+
+  background: #22c55e;
+
+  color: white;
+
   border: none;
+
+  border-radius: 8px;
+
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Smooth transition */
+
+  font-weight: 600;
+
+  transition: 0.25s;
 }
 
-/* Clicked/Active state */
-#submitbtn.clicked {
-  background-color: #28a745; /* Green background */
-  cursor: default; /* Change cursor to indicate no further action needed */
+#contact button:hover {
+  background: #16a34a;
 }
 
-#msg {
-  display: block;
-  text-align: center;
-  color: green;
-  font-size: 18px;
-  margin-top: 10px;
+/* ================= RIGHT ================= */
+
+#contact .contact-right {
+  padding: 22px;
+
+  border-left: 1px solid #28364a;
 }
+
+#contact .contact-item {
+  display: flex;
+
+  gap: 14px;
+
+  margin-bottom: 16px;
+}
+
+#contact .icon {
+  width: 40px;
+
+  height: 40px;
+
+  background: #192332;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  color: #22c55e;
+
+  flex-shrink: 0;
+}
+
+#contact .contact-item h4 {
+  color: white;
+
+  margin: 0 0 4px;
+
+  font-size: 0.9rem;
+}
+
+#contact .contact-item p {
+  color: #9ca8b8;
+
+  font-size: 0.8rem;
+
+  margin: 0;
+}
+
+#contact .contact-right hr {
+  border: none;
+
+  border-top: 1px solid #28364a;
+
+  margin: 18px 0;
+}
+
+#contact .contact-right > h4 {
+  color: white;
+
+  margin-bottom: 4px;
+}
+
+#contact .contact-right > p {
+  color: #9ca8b8;
+
+  font-size: 0.82rem;
+
+  margin-bottom: 14px;
+}
+
+/* ================= SOCIAL ================= */
+
+#contact .social-links {
+  display: flex;
+
+  gap: 10px;
+
+  flex-wrap: wrap;
+}
+
+#contact .social-links a {
+  width: 34px;
+
+  height: 34px;
+
+  border-radius: 8px;
+
+  background: #192332;
+
+  color: #22c55e;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  text-decoration: none;
+
+  transition: 0.25s;
+}
+
+#contact .social-links a:hover {
+  background: #22c55e;
+
+  color: white;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+  #contact .contact-card {
+    grid-template-columns: 1fr;
+  }
+
+  #contact .contact-right {
+    border-left: none;
+
+    border-top: 1px solid #28364a;
+  }
+}
+
+/* ==========================================
+   FORM STATUS
+========================================== */
+
+#contact #contact-status {
+  min-height: 22px;
+
+  margin-top: 14px;
+
+  font-size: 0.9rem;
+
+  font-weight: 600;
+}
+/* ===========================
+   Footer section
+=========================== */
 
 .copyright {
   width: 100%;
@@ -694,19 +935,6 @@ form textarea {
     font-size: 40px;
     color: black;
     margin-left: 40px;
-  }
-
-  #contactMe {
-    width: 250px;
-    height: 150px;
-  }
-  .contact-left,
-  .contact-right {
-    flex-basis: 100%;
-  }
-
-  .contact-left h1 {
-    font-size: 45px;
   }
 
   .copyright {
