@@ -405,10 +405,16 @@
 
             <p>Let's build something amazing together.</p>
 
-            <form id="contactForm">
+            <form id="contactForm" novalidate>
               <div class="input-group">
                 <i class="fa-regular fa-user"></i>
-                <input type="text" id="name" placeholder="Your Name" required />
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Your Name"
+                  required
+                />
               </div>
 
               <div class="input-group">
@@ -416,6 +422,7 @@
                 <input
                   type="email"
                   id="email"
+                  name="email"
                   placeholder="Your Email"
                   required
                 />
@@ -425,6 +432,7 @@
                 <i class="fa-solid fa-pencil"></i>
                 <input
                   type="text"
+                  name="subject"
                   id="subject"
                   placeholder="Subject"
                   required
@@ -434,10 +442,23 @@
               <div class="input-group">
                 <i class="fa-regular fa-comment"></i>
                 <textarea
+                  name="message"
                   id="message"
                   placeholder="Your Message"
                   required
                 ></textarea>
+              </div>
+
+              <!-- Honeypot (hidden from real users) -->
+              <div class="contact-honeypot" aria-hidden="true">
+                <label for="website">Website</label>
+                <input
+                  type="text"
+                  id="website"
+                  name="website"
+                  tabindex="-1"
+                  autocomplete="off"
+                />
               </div>
 
               <div class="captcha-placeholder">Cloudflare Turnstile</div>
@@ -501,10 +522,6 @@
           </div>
         </div>
       </section>
-      <h3 style="color: #ef4444">
-        Fixing the form...Kindly contact me directly at
-        <span style="color: #000">beulah.ludon1@gmail.com</span>
-      </h3>
     </div>
 
     <script src="main.js"></script>
