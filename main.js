@@ -138,6 +138,7 @@ function initializeContactForm() {
         email: document.getElementById("email"),
         subject: document.getElementById("subject"),
         message: document.getElementById("message"),
+        messageCount: document.getElementById("messageCount"),
         website: document.getElementById("website"),
         submitButton: form.querySelector("button")
     };
@@ -145,6 +146,14 @@ function initializeContactForm() {
     const status = document.createElement("div");
     status.id = "contact-status";
     form.appendChild(status);
+
+    updateCharacterCounter(elements);
+
+    elements.message.addEventListener("input", () => {
+
+        updateCharacterCounter(elements);
+
+    });
 
     form.addEventListener("submit", async function (event) {
 
@@ -169,6 +178,14 @@ function initializeContactForm() {
         elements.submitButton.innerHTML =
             '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
 
+        elements.name.value = sanitizeInput(elements.name.value);
+
+        elements.email.value = sanitizeInput(elements.email.value);
+
+        elements.subject.value = sanitizeInput(elements.subject.value);
+
+        elements.message.value = sanitizeMessage(elements.message.value);
+
         try {
 
             await sendToGoogleForm(elements);
@@ -180,6 +197,8 @@ function initializeContactForm() {
             );
 
             form.reset();
+
+            updateCharacterCounter(elements);
 
         }
         catch (error) {
@@ -209,8 +228,24 @@ function initializeContactForm() {
 /* =====================================================
    Validation
 ===================================================== */
-
 function validateForm(elements) {
+    if (elements.website.value.trim() !== "") {
+
+        return {
+            valid: false,
+            message: "Submission rejected."
+        };
+
+    }
+
+    if (elements.message.value.length > 1000) {
+
+        return {
+            valid: false,
+            message: "Message cannot exceed 1000 characters."
+        };
+
+    }
 
     if (elements.name.value.trim().length < 2) {
 
@@ -255,9 +290,35 @@ function validateForm(elements) {
 }
 
 /* =====================================================
+   Character Counter
+===================================================== */
+function updateCharacterCounter(elements) {
+
+    const length = elements.message.value.length;
+
+    const counter = elements.messageCount.parentElement;
+
+    elements.messageCount.textContent = length;
+
+    counter.classList.remove("warning", "danger");
+
+    if (length >= 800 && length < 950) {
+
+        counter.classList.add("warning");
+
+    }
+
+    if (length >= 950) {
+
+        counter.classList.add("danger");
+
+    }
+
+}
+
+/* =====================================================
    Email Validation
 ===================================================== */
-
 function validateEmail(email) {
 
     const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -303,6 +364,27 @@ async function sendToGoogleForm(elements) {
         body: formData
 
     });
+
+}
+
+/* =====================================================
+   Input Sanitizer
+===================================================== */
+
+function sanitizeInput(text) {
+
+    return text
+        .trim()                      // Remove leading/trailing spaces
+        .replace(/\s+/g, " ");       // Replace multiple spaces with one
+
+}
+
+function sanitizeMessage(text) {
+
+    return text
+        .trim()
+        .replace(/\r\n/g, "\n")      // Normalize line endings
+        .replace(/\n{3,}/g, "\n\n"); // Maximum of one blank line
 
 }
 

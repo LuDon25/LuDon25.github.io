@@ -902,15 +902,36 @@ nav a:hover {
   color: #ef4444;
 }
 
-/* ==========================================
-   Honeypot
-========================================== */
+/* ======================================
+   Message Character Counter
+====================================== */
+.message-counter {
+  margin-top: 6px;
+  margin-bottom: 14px;
+  text-align: right;
+  font-size: 0.78rem;
+  color: #9ca3af;
+  transition: color 0.25s ease;
+}
 
+.message-counter.warning {
+  color: #f59e0b;
+}
+
+.message-counter.danger {
+  color: #ef4444;
+}
+
+/* ======================================
+   Contact Honeypot
+====================================== */
 .contact-honeypot {
   position: absolute;
-  left: -9999px;
-  opacity: 0;
-  pointer-events: none;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 /* ===========================
