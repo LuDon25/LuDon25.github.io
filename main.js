@@ -100,14 +100,18 @@ document.addEventListener('keydown', e => {
 
 });
 
-
-"use strict";
 /* =====================================================
-   Google Form Configuration
+   CONTACT ME
 ===================================================== */
+"use strict";
+
+/* ===============================
+   CONTACT FORM CONFIGURATION
+================================== */
 
 const GOOGLE_FORM = {
-    action: "https://docs.google.com/forms/d/e/1FAIpQLSeuUp7SQhnHs6sZXgPnQP0cx64m3WW54mNzc2Nq1Sjd-sGkfw/formResponse",
+    action:
+        "https://docs.google.com/forms/d/e/1FAIpQLSeuUp7SQhnHs6sZXgPnQP0cx64m3WW54mNzc2Nq1Sjd-sGkfw/formResponse",
 
     fields: {
         name: "entry.1708362030",
@@ -118,13 +122,13 @@ const GOOGLE_FORM = {
 };
 
 /* =====================================================
-   Portfolio Contact Form
+   APPLICATION ENTRY POINT
 ===================================================== */
 
 document.addEventListener("DOMContentLoaded", initializeContactForm);
 
 /* =====================================================
-   Initialize
+   CONTACT FORM INITIALIZATION
 ===================================================== */
 
 function initializeContactForm() {
@@ -133,19 +137,65 @@ function initializeContactForm() {
 
     const form = document.getElementById("contactForm");
 
-    const elements = {
+    if (!form) return;
+
+    const elements = cacheFormElements(form);
+
+    const status = createStatusElement(form);
+
+    initializeCharacterCounter(elements);
+
+    registerEventListeners(form, elements, status);
+
+}
+
+/* =====================================================
+   DOM ELEMENT CACHE
+===================================================== */
+
+function cacheFormElements(form) {
+
+    return {
+
         name: document.getElementById("name"),
+
         email: document.getElementById("email"),
+
         subject: document.getElementById("subject"),
+
         message: document.getElementById("message"),
+
         messageCount: document.getElementById("messageCount"),
+
         website: document.getElementById("website"),
+
         submitButton: form.querySelector("button")
+
     };
 
+}
+
+/* =====================================================
+   STATUS ELEMENT
+===================================================== */
+
+function createStatusElement(form) {
+
     const status = document.createElement("div");
+
     status.id = "contact-status";
+
     form.appendChild(status);
+
+    return status;
+
+}
+
+/* =====================================================
+   CHARACTER COUNTER INITIALIZATION
+===================================================== */
+
+function initializeCharacterCounter(elements) {
 
     updateCharacterCounter(elements);
 
@@ -155,84 +205,109 @@ function initializeContactForm() {
 
     });
 
-    form.addEventListener("submit", async function (event) {
+}
 
-        event.preventDefault();
+/* =====================================================
+   EVENT LISTENERS
+===================================================== */
 
-        if (!form.reportValidity()) {
-            return;
-        }
+function registerEventListeners(form, elements, status) {
 
-        clearStatus(status);
+    form.addEventListener("submit", (event) =>
 
-        const validation = validateForm(elements);
+        handleFormSubmission(event, form, elements, status)
 
-        if (!validation.valid) {
-
-            showStatus(status, validation.message, "error");
-
-            return;
-
-        }
-
-        showStatus(status, "Sending...", "success");
-
-        elements.submitButton.disabled = true;
-
-        elements.submitButton.innerHTML =
-            '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
-
-        elements.name.value = sanitizeInput(elements.name.value);
-
-        elements.email.value = sanitizeInput(elements.email.value);
-
-        elements.subject.value = sanitizeInput(elements.subject.value);
-
-        elements.message.value = sanitizeMessage(elements.message.value);
-
-        try {
-
-            await sendToGoogleForm(elements);
-
-            showStatus(
-                status,
-                "✓ Thank you! Your message has been sent.",
-                "success"
-            );
-
-            form.reset();
-
-            updateCharacterCounter(elements);
-
-        }
-        catch (error) {
-
-            console.error(error);
-
-            showStatus(
-                status,
-                "Unable to send your message.",
-                "error"
-            );
-
-        }
-        finally {
-
-            elements.submitButton.disabled = false;
-
-            elements.submitButton.innerHTML =
-                '<i class="fa-solid fa-paper-plane"></i> Send Message';
-
-        }
-
-    });
+    );
 
 }
 
 /* =====================================================
-   Validation
+   FORM SUBMISSION
 ===================================================== */
+
+async function handleFormSubmission(event, form, elements, status) {
+
+    event.preventDefault();
+
+    if (!form.reportValidity()) {
+
+        return;
+
+    }
+
+    clearStatus(status);
+
+    const validation = validateForm(elements);
+
+    if (!validation.valid) {
+
+        showStatus(status, validation.message, "error");
+
+        return;
+
+    }
+
+    showStatus(status, "Sending...", "success");
+
+    elements.submitButton.disabled = true;
+
+    elements.submitButton.innerHTML =
+        '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+
+    elements.name.value = sanitizeInput(elements.name.value);
+
+    elements.email.value = sanitizeInput(elements.email.value);
+
+    elements.subject.value = sanitizeInput(elements.subject.value);
+
+    elements.message.value = sanitizeMessage(elements.message.value);
+
+    try {
+
+        await sendToGoogleForm(elements);
+
+        showStatus(
+            status,
+            "✓ Thank you! Your message has been sent.",
+            "success"
+        );
+
+        form.reset();
+
+        updateCharacterCounter(elements);
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        showStatus(
+            status,
+            "Unable to send your message.",
+            "error"
+        );
+
+    }
+
+    finally {
+
+        elements.submitButton.disabled = false;
+
+        elements.submitButton.innerHTML =
+            '<i class="fa-solid fa-paper-plane"></i> Send Message';
+
+    }
+
+}
+
+/* =====================================================
+   FORM VALIDATION
+===================================================== */
+
 function validateForm(elements) {
+
+    // Honeypot protection
     if (elements.website.value.trim() !== "") {
 
         return {
@@ -242,6 +317,7 @@ function validateForm(elements) {
 
     }
 
+    // Message length
     if (elements.message.value.length > 1000) {
 
         return {
@@ -251,6 +327,7 @@ function validateForm(elements) {
 
     }
 
+    // Name
     if (elements.name.value.trim().length < 2) {
 
         return {
@@ -260,6 +337,7 @@ function validateForm(elements) {
 
     }
 
+    // Email
     if (!validateEmail(elements.email.value.trim())) {
 
         return {
@@ -269,6 +347,7 @@ function validateForm(elements) {
 
     }
 
+    // Subject
     if (elements.subject.value.trim().length < 3) {
 
         return {
@@ -278,6 +357,7 @@ function validateForm(elements) {
 
     }
 
+    // Message
     if (elements.message.value.trim().length < 10) {
 
         return {
@@ -294,8 +374,9 @@ function validateForm(elements) {
 }
 
 /* =====================================================
-   Character Counter
+   USER INTERFACE COMPONENTS
 ===================================================== */
+
 function updateCharacterCounter(elements) {
 
     const length = elements.message.value.length;
@@ -321,8 +402,30 @@ function updateCharacterCounter(elements) {
 }
 
 /* =====================================================
-   Email Validation
+   INPUT SANITIZATION
 ===================================================== */
+
+function sanitizeInput(text) {
+
+    return text
+        .trim()
+        .replace(/\s+/g, " ");
+
+}
+
+function sanitizeMessage(text) {
+
+    return text
+        .trim()
+        .replace(/\r\n/g, "\n")
+        .replace(/\n{3,}/g, "\n\n");
+
+}
+
+/* =====================================================
+   INPUT VALIDATION UTILITIES
+===================================================== */
+
 function validateEmail(email) {
 
     const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -332,7 +435,7 @@ function validateEmail(email) {
 }
 
 /* =====================================================
-   Google Form Service
+   GOOGLE FORMS SERVICE
 ===================================================== */
 
 async function sendToGoogleForm(elements) {
@@ -372,28 +475,7 @@ async function sendToGoogleForm(elements) {
 }
 
 /* =====================================================
-   Input Sanitizer
-===================================================== */
-
-function sanitizeInput(text) {
-
-    return text
-        .trim()                      // Remove leading/trailing spaces
-        .replace(/\s+/g, " ");       // Replace multiple spaces with one
-
-}
-
-function sanitizeMessage(text) {
-
-    return text
-        .trim()
-        .replace(/\r\n/g, "\n")      // Normalize line endings
-        .replace(/\n{3,}/g, "\n\n"); // Maximum of one blank line
-
-}
-
-/* =====================================================
-   Status Messages
+   STATUS MESSAGE UTILITIES
 ===================================================== */
 
 function showStatus(statusElement, message, type) {
