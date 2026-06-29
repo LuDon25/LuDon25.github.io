@@ -159,6 +159,10 @@ function initializeContactForm() {
 
         event.preventDefault();
 
+        if (!form.reportValidity()) {
+            return;
+        }
+
         clearStatus(status);
 
         const validation = validateForm(elements);

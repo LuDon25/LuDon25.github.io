@@ -934,6 +934,28 @@ nav a:hover {
   overflow: hidden;
 }
 
+/* ======================================
+   Browser Validation Styles
+====================================== */
+#contactForm input,
+#contactForm textarea {
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* Show green only after the user has typed something */
+#contactForm input:valid:not(:placeholder-shown),
+#contactForm textarea:valid:not(:placeholder-shown) {
+  border-color: #22c55e;
+}
+
+/* Only highlight invalid fields while focused */
+#contactForm input:focus:invalid,
+#contactForm textarea:focus:invalid {
+  border-color: #ef4444;
+}
+
 /* ===========================
    Footer section
 =========================== */

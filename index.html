@@ -401,48 +401,56 @@
 
             <p>Let's build something amazing together.</p>
 
-            <form id="contactForm" novalidate>
+            <form id="contactForm">
               <div class="input-group">
                 <i class="fa-regular fa-user"></i>
                 <input
-                  type="text"
                   id="name"
                   name="name"
+                  type="text"
                   placeholder="Your Name"
                   required
+                  minlength="2"
+                  maxlength="80"
+                  autocomplete="name"
                 />
               </div>
 
               <div class="input-group">
                 <i class="fa-regular fa-envelope"></i>
                 <input
-                  type="email"
                   id="email"
                   name="email"
+                  type="email"
                   placeholder="Your Email"
                   required
+                  maxlength="120"
+                  autocomplete="email"
                 />
               </div>
 
               <div class="input-group">
                 <i class="fa-solid fa-pencil"></i>
                 <input
-                  type="text"
-                  name="subject"
                   id="subject"
+                  name="subject"
+                  type="text"
                   placeholder="Subject"
                   required
+                  minlength="3"
+                  maxlength="120"
                 />
               </div>
 
               <div class="input-group">
                 <i class="fa-regular fa-comment"></i>
                 <textarea
-                  name="message"
-                  maxlength="1000"
                   id="message"
+                  name="message"
                   placeholder="Your Message"
                   required
+                  minlength="10"
+                  maxlength="1000"
                 ></textarea>
               </div>
 
