@@ -100,14 +100,11 @@ document.addEventListener('keydown', e => {
 
 });
 
-/* =====================================================
-   CONTACT ME
-===================================================== */
+//CONTACT ME
+
 "use strict";
 
-/* ===============================
-   CONTACT FORM CONFIGURATION
-================================== */
+//CONTACT FORM CONFIGURATION
 
 const GOOGLE_FORM = {
     action:
@@ -121,15 +118,11 @@ const GOOGLE_FORM = {
     }
 };
 
-/* =====================================================
-   APPLICATION ENTRY POINT
-===================================================== */
+//APPLICATION ENTRY POINT
 
 document.addEventListener("DOMContentLoaded", initializeContactForm);
 
-/* =====================================================
-   CONTACT FORM INITIALIZATION
-===================================================== */
+//CONTACT FORM INITIALIZATION
 
 function initializeContactForm() {
 
@@ -149,9 +142,7 @@ function initializeContactForm() {
 
 }
 
-/* =====================================================
-   DOM ELEMENT CACHE
-===================================================== */
+//DOM ELEMENT CAHCE
 
 function cacheFormElements(form) {
 
@@ -175,9 +166,7 @@ function cacheFormElements(form) {
 
 }
 
-/* =====================================================
-   STATUS ELEMENT
-===================================================== */
+//STATUS ELEMENT
 
 function createStatusElement(form) {
 
@@ -191,9 +180,7 @@ function createStatusElement(form) {
 
 }
 
-/* =====================================================
-   CHARACTER COUNTER INITIALIZATION
-===================================================== */
+//CHARACTER COUNTER INITIALIZATION
 
 function initializeCharacterCounter(elements) {
 
@@ -207,9 +194,7 @@ function initializeCharacterCounter(elements) {
 
 }
 
-/* =====================================================
-   EVENT LISTENERS
-===================================================== */
+//EVENT LISTENERS
 
 function registerEventListeners(form, elements, status) {
 
@@ -221,9 +206,7 @@ function registerEventListeners(form, elements, status) {
 
 }
 
-/* =====================================================
-   FORM SUBMISSION
-===================================================== */
+//FORM SUBMISSION
 
 async function handleFormSubmission(event, form, elements, status) {
 
@@ -301,9 +284,7 @@ async function handleFormSubmission(event, form, elements, status) {
 
 }
 
-/* =====================================================
-   FORM VALIDATION
-===================================================== */
+//FORM VALIDATION
 
 function validateForm(elements) {
 
@@ -373,9 +354,7 @@ function validateForm(elements) {
 
 }
 
-/* =====================================================
-   USER INTERFACE COMPONENTS
-===================================================== */
+//USER INTERFACE COMPONENTS
 
 function updateCharacterCounter(elements) {
 
@@ -401,9 +380,7 @@ function updateCharacterCounter(elements) {
 
 }
 
-/* =====================================================
-   INPUT SANITIZATION
-===================================================== */
+//INPT SANITIZATION
 
 function sanitizeInput(text) {
 
@@ -422,9 +399,7 @@ function sanitizeMessage(text) {
 
 }
 
-/* =====================================================
-   INPUT VALIDATION UTILITIES
-===================================================== */
+//INPUT VALIDATION UTILITIES
 
 function validateEmail(email) {
 
@@ -434,9 +409,7 @@ function validateEmail(email) {
 
 }
 
-/* =====================================================
-   GOOGLE FORMS SERVICE
-===================================================== */
+//GOOGLE FORMS SERVICE
 
 async function sendToGoogleForm(elements) {
 
@@ -474,9 +447,7 @@ async function sendToGoogleForm(elements) {
 
 }
 
-/* =====================================================
-   STATUS MESSAGE UTILITIES
-===================================================== */
+//STATUS MESSAGE UTILITIES
 
 function showStatus(statusElement, message, type) {
 
