@@ -23,82 +23,50 @@ function prevSlide() {
 setInterval(nextSlide, 5000);
 
 // About-Me section functionality
-const aboutmeTabs = document.querySelectorAll('.aboutme-tab');
-const aboutmeContents = document.querySelectorAll('.aboutme-tab-content');
+document.addEventListener("DOMContentLoaded", () => {
+    const portfolioSection = document.querySelector(".portfolio-about");
 
-aboutmeTabs.forEach(tab => {
+    if (!portfolioSection) return;
 
-    tab.addEventListener('click', () => {
+    const tabs = portfolioSection.querySelectorAll(
+        ".portfolio-about__tab"
+    );
 
-        aboutmeTabs.forEach(btn =>
-            btn.classList.remove('active'));
+    const panels = portfolioSection.querySelectorAll(
+        ".portfolio-about__panel"
+    );
 
-        aboutmeContents.forEach(content =>
-            content.classList.remove('active'));
+    tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+            const targetId = tab.dataset.tab;
 
-        tab.classList.add('active');
+            // Remove active state from tabs
+            tabs.forEach((item) => {
+                item.classList.remove("portfolio-about__tab--active");
+            });
 
-        document
-            .getElementById(tab.dataset.tab)
-            .classList.add('active');
+            // Hide all panels
+            panels.forEach((panel) => {
+                panel.classList.remove("portfolio-about__panel--active");
+            });
+
+            // Activate clicked tab
+            tab.classList.add("portfolio-about__tab--active");
+
+            // Show corresponding panel
+            const targetPanel = portfolioSection.querySelector(
+                `#${targetId}`
+            );
+
+            if (targetPanel) {
+                targetPanel.classList.add(
+                    "portfolio-about__panel--active"
+                );
+            }
+        });
     });
-
 });
 
-const aboutmeItems =
-    document.querySelectorAll('.aboutme-icon-item');
-
-const aboutmeModal =
-    document.querySelector('.aboutme-modal');
-
-const aboutmeOverlay =
-    document.querySelector('.aboutme-overlay');
-
-const aboutmeTitle =
-    document.getElementById('aboutme-modal-title');
-
-const aboutmeDesc =
-    document.getElementById('aboutme-modal-desc');
-
-aboutmeItems.forEach(item => {
-
-    item.addEventListener('click', () => {
-
-        aboutmeTitle.textContent =
-            item.dataset.title || 'Details';
-
-        aboutmeDesc.textContent =
-            item.dataset.desc || 'No description available.';
-
-        aboutmeModal.classList.add('active');
-        aboutmeOverlay.classList.add('active');
-
-    });
-
-});
-
-function closeAboutModal() {
-
-    aboutmeModal.classList.remove('active');
-    aboutmeOverlay.classList.remove('active');
-}
-
-document
-    .querySelector('.aboutme-close-btn')
-    .addEventListener('click', closeAboutModal);
-
-aboutmeOverlay.addEventListener(
-    'click',
-    closeAboutModal
-);
-
-document.addEventListener('keydown', e => {
-
-    if (e.key === 'Escape') {
-        closeAboutModal();
-    }
-
-});
 
 //CONTACT ME
 

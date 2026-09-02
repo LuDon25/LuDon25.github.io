@@ -169,277 +169,607 @@ nav a:hover {
   padding: 10px 10%;
 }
 
-.portfolio-divider {
-  width: 240px;
-  height: 2px;
+/* ==========================================
+   ABOUT SECTION
+========================================== */
 
-  margin: 10px auto;
-  background-color: black;
-}
+.portfolio-about {
+  --pa-bg: #f4f2ee;
+  --pa-panel: #ffffff;
+  --pa-sidebar: #f8f7f4;
 
-.portfolio-divider2 {
-  width: 240px;
-  height: 2px;
+  --pa-text: #242932;
+  --pa-muted: #68707a;
 
-  margin: 10px auto;
-  margin-bottom: 40px;
-  background-color: black;
-}
+  --pa-border: #ddd9d1;
 
-/*------------------About--------------------*/
-.aboutme-container {
-  display: flex;
-  gap: 50px;
-  align-items: flex-start;
+  --pa-gold: #a87522;
+  --pa-gold-dark: #8d6219;
+
   width: 100%;
-  margin-top: 40px;
+  height: 100vh;
+  height: 100svh;
+
+  padding: 24px;
+
+  overflow: hidden;
+
+  background: var(--pa-bg);
+
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
 }
 
-.aboutme-left-panel {
-  width: 320px;
-  flex-shrink: 0;
+/* Prevent global CSS interference */
+
+.portfolio-about *,
+.portfolio-about *::before,
+.portfolio-about *::after {
+  box-sizing: border-box;
 }
 
-.aboutme-card {
-  background: url("images/meCoding.jpg");
+/* ==========================================
+   MAIN CONTAINER
+========================================== */
 
-  background-size: cover;
-  background-position: center;
+.portfolio-about__wrapper {
+  width: 100%;
+  max-width: 1500px;
 
-  border-radius: 16px;
-  padding: 14px;
+  height: 100%;
 
-  border: 1px solid rgba(255, 165, 0, 0.4);
+  margin: 0 auto;
 
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-.aboutme-top-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 12px;
+
+  grid-template-columns:
+    400px
+    minmax(0, 1fr);
+
+  background: var(--pa-panel);
+
+  border: 1px solid var(--pa-border);
+
+  border-radius: 22px;
+
+  overflow: hidden;
+
+  box-shadow: 0 15px 45px rgba(30, 30, 30, 0.05);
 }
 
-.aboutme-box {
-  background: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(3px);
+/* ==========================================
+   LEFT SIDEBAR
+========================================== */
 
-  border: 1px solid rgba(255, 165, 0, 0.3);
+.portfolio-about__sidebar {
+  height: 100%;
 
-  border-radius: 12px;
+  padding: clamp(28px, 4vh, 48px) clamp(22px, 3vw, 36px);
 
-  padding: 12px;
-}
+  background: var(--pa-sidebar);
 
-.aboutme-box h3 {
-  text-align: center;
-  color: #f5a623;
-  font-size: 0.85rem;
-  margin-bottom: 12px;
-}
-
-.aboutme-workedwith {
-  width: 100%;
-}
-
-.aboutme-icons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-}
-
-.aboutme-icon-item {
-  width: 45px;
-  height: 45px;
+  border-right: 1px solid var(--pa-border);
 
   display: flex;
-  justify-content: center;
+
+  flex-direction: column;
+}
+
+/* ==========================================
+   TECH HEADER
+========================================== */
+
+.portfolio-about__tech-header {
+  display: flex;
+
   align-items: center;
+
+  gap: 16px;
+
+  padding-bottom: clamp(22px, 3vh, 34px);
+
+  border-bottom: 1px solid var(--pa-border);
+}
+
+.portfolio-about__tech-header h2 {
+  margin: 0;
+
+  color: var(--pa-text);
+
+  font-size: 17px;
+
+  font-weight: 600;
+
+  letter-spacing: 3px;
+}
+
+.portfolio-about__code-icon {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--pa-gold);
 
   border-radius: 10px;
 
-  border: 1px solid rgba(255, 165, 0, 0.3);
+  color: var(--pa-gold);
 
-  color: #f5a623;
+  font-size: 15px;
 
-  cursor: pointer;
-
-  transition: 0.3s ease;
+  font-weight: 700;
 }
 
-.aboutme-icon-item:hover {
-  transform: translateY(-3px);
+/* ==========================================
+   TECH GRID
+   TWO ITEMS PER ROW
+========================================== */
 
-  background: #f5a623;
-  color: #000;
+.portfolio-about__tech-grid {
+  display: grid;
 
-  box-shadow: 0 0 15px rgba(245, 166, 35, 0.5);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 14px;
+
+  margin-top: clamp(22px, 3vh, 34px);
 }
 
-.aboutme-icon-item i {
-  font-size: 1.2rem;
-}
+.portfolio-about__tech-item {
+  min-height: clamp(76px, 9vh, 96px);
 
-.aboutme-content {
-  flex: 1;
-}
+  padding: 14px;
 
-.aboutme-content h1 {
-  font-size: 4rem;
-  color: #111;
-  margin-bottom: 10px;
-}
-
-.aboutme-intro {
-  max-width: 800px;
-  line-height: 1.4;
-  color: #444;
-  margin-bottom: 20px;
-}
-
-.aboutme-tabs {
   display: flex;
-  gap: 40px;
-  margin-bottom: 35px;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  background: #ffffff;
+
+  border: 1px solid var(--pa-border);
+
+  border-radius: 12px;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-.aboutme-tab {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1.2rem;
-  color: #444;
+.portfolio-about__tech-item:hover {
+  transform: translateY(-2px);
+
+  border-color: var(--pa-gold);
+
+  box-shadow: 0 8px 20px rgba(40, 40, 40, 0.05);
+}
+
+.portfolio-about__tech-item > span:last-child {
+  color: var(--pa-text);
+
+  font-size: 14px;
+
+  font-weight: 500;
+}
+
+/* ==========================================
+   TECH LOGOS
+========================================== */
+
+.portfolio-about__tech-logo {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+/* Django */
+
+.portfolio-about__django {
+  color: #1f6b45;
+
+  background: #edf5ef;
+}
+
+/* Python */
+
+.portfolio-about__python {
+  color: #306998;
+
+  background: #eef4f8;
+}
+
+/* React */
+
+.portfolio-about__react {
+  color: #149eca;
+
+  background: #edf8fb;
+
+  font-size: 22px;
+}
+
+/* Next.js */
+
+.portfolio-about__next {
+  color: #ffffff;
+
+  background: #171717;
+}
+
+/* JavaScript */
+
+.portfolio-about__js {
+  color: #252525;
+
+  background: #f7df1e;
+}
+
+/* TypeScript */
+
+.portfolio-about__ts {
+  color: #ffffff;
+
+  background: #3178c6;
+}
+
+/* SQL */
+
+.portfolio-about__sql {
+  color: #9a6c1f;
+
+  background: #f8f1e4;
+
+  font-size: 11px;
+}
+
+/* PostgreSQL */
+
+.portfolio-about__postgres {
+  color: #336791;
+
+  background: #eef3f7;
+}
+
+/* ==========================================
+   RIGHT CONTENT
+========================================== */
+
+.portfolio-about__content {
+  height: 100%;
+
+  min-width: 0;
+
+  padding: clamp(32px, 6vh, 64px) clamp(36px, 6vw, 80px);
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+/* ==========================================
+   ABOUT LABEL
+========================================== */
+
+.portfolio-about__eyebrow {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: clamp(14px, 2vh, 24px);
+
+  color: var(--pa-gold);
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  letter-spacing: 3px;
+}
+
+.portfolio-about__eyebrow span {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: var(--pa-gold);
+}
+
+/* ==========================================
+   TITLE
+========================================== */
+
+.portfolio-about__title {
+  max-width: 850px;
+
+  margin: 0;
+
+  color: var(--pa-text);
+
+  font-size: clamp(40px, 4.5vw, 66px);
+
+  line-height: 1.08;
+
+  letter-spacing: -2px;
+
+  font-weight: 700;
+}
+
+.portfolio-about__title span {
+  color: var(--pa-gold-dark);
+}
+
+/* ==========================================
+   DESCRIPTION
+========================================== */
+
+.portfolio-about__description {
+  max-width: 760px;
+
+  margin: clamp(16px, 2.5vh, 28px) 0 clamp(26px, 4vh, 48px);
+
+  color: var(--pa-muted);
+
+  font-size: clamp(16px, 1.3vw, 19px);
+
+  line-height: 1.65;
+}
+
+/* ==========================================
+   TABS
+========================================== */
+
+.portfolio-about__tabs {
+  display: flex;
+
+  align-items: center;
+
+  gap: clamp(28px, 5vw, 56px);
+
+  border-bottom: 1px solid var(--pa-border);
+}
+
+.portfolio-about__tab {
   position: relative;
+
+  padding: 0 6px 16px;
+
+  border: none;
+
+  background: transparent;
+
+  color: var(--pa-muted);
+
+  font-family: inherit;
+
+  font-size: clamp(17px, 1.5vw, 21px);
+
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: color 0.2s ease;
 }
 
-.aboutme-tab.active {
-  color: #f5a623;
+.portfolio-about__tab:hover {
+  color: var(--pa-gold);
 }
 
-.aboutme-tab.active::after {
+.portfolio-about__tab--active {
+  color: var(--pa-gold-dark);
+}
+
+.portfolio-about__tab--active::after {
   content: "";
+
   position: absolute;
+
   left: 0;
-  bottom: -10px;
-  width: 100%;
+  bottom: -1px;
+
+  width: 64px;
+
   height: 3px;
-  background: #f5a623;
+
+  background: var(--pa-gold);
+
+  border-radius: 3px;
 }
 
-.aboutme-tab-content {
+/* ==========================================
+   CONTENT PANELS
+========================================== */
+
+.portfolio-about__panel {
   display: none;
+
+  padding-top: clamp(10px, 2vh, 20px);
 }
 
-.aboutme-tab-content.active {
+.portfolio-about__panel--active {
   display: block;
 }
 
-.aboutme-entry {
-  margin-bottom: 25px;
+/* ==========================================
+   PANEL ITEMS
+========================================== */
+
+.portfolio-about__item {
+  display: flex;
+
+  align-items: center;
+
+  gap: 22px;
+
+  padding: clamp(16px, 2.2vh, 26px) 8px;
+
+  border-bottom: 1px solid var(--pa-border);
 }
 
-.aboutme-entry h4 {
-  color: #f5a623;
-  margin-bottom: 8px;
+.portfolio-about__item:last-child {
+  border-bottom: none;
 }
 
-.aboutme-entry p {
-  color: #444;
-  line-height: 1.6;
+.portfolio-about__item-icon {
+  width: 48px;
+  height: 48px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #d6b06a;
+
+  border-radius: 10px;
+
+  color: var(--pa-gold-dark);
+
+  font-size: 19px;
+
+  font-weight: 600;
 }
 
-.aboutme-overlay {
-  position: fixed;
-  inset: 0;
+.portfolio-about__item h3 {
+  margin: 0 0 7px;
 
-  backdrop-filter: blur(8px);
+  color: var(--pa-text);
 
-  background: rgba(0, 0, 0, 0.4);
+  font-size: clamp(17px, 1.4vw, 20px);
 
-  opacity: 0;
-  visibility: hidden;
-
-  transition: 0.3s;
-
-  z-index: 1000;
+  font-weight: 600;
 }
 
-.aboutme-overlay.active {
-  opacity: 1;
-  visibility: visible;
+.portfolio-about__item p {
+  margin: 0;
+
+  color: var(--pa-muted);
+
+  font-size: clamp(14px, 1.1vw, 16px);
+
+  line-height: 1.5;
 }
 
-.aboutme-modal {
-  position: fixed;
+/* ==========================================
+   LARGE LAPTOP ADJUSTMENTS
+========================================== */
 
-  top: 50%;
-  left: 50%;
+@media (max-width: 1200px) {
+  .portfolio-about__wrapper {
+    grid-template-columns:
+      340px
+      minmax(0, 1fr);
+  }
 
-  transform: translate(-50%, -50%) scale(0.85);
-
-  width: 450px;
-  max-width: 90%;
-
-  background: white;
-
-  border-radius: 16px;
-
-  padding: 30px;
-
-  z-index: 1001;
-
-  opacity: 0;
-  visibility: hidden;
-
-  transition: 0.3s;
-
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  .portfolio-about__content {
+    padding: 40px 52px;
+  }
 }
 
-.aboutme-modal.active {
-  opacity: 1;
-  visibility: visible;
-
-  transform: translate(-50%, -50%) scale(1);
-}
-
-.aboutme-modal h2 {
-  color: #f5a623;
-  margin-bottom: 12px;
-}
-
-.aboutme-modal p {
-  color: #444;
-  line-height: 1.6;
-}
-
-.aboutme-close-btn {
-  position: absolute;
-
-  top: 10px;
-  right: 15px;
-
-  border: none;
-  background: none;
-
-  font-size: 28px;
-
-  cursor: pointer;
-}
+/* ==========================================
+   TABLET
+========================================== */
 
 @media (max-width: 900px) {
-  .aboutme-container {
-    flex-direction: column;
+  .portfolio-about {
+    height: auto;
+
+    min-height: 100vh;
+
+    overflow: visible;
   }
 
-  .aboutme-left-panel {
-    width: 100%;
+  .portfolio-about__wrapper {
+    height: auto;
+
+    grid-template-columns: 1fr;
   }
 
-  .aboutme-content h1 {
-    font-size: 2rem;
+  .portfolio-about__sidebar {
+    border-right: none;
+
+    border-bottom: 1px solid var(--pa-border);
+  }
+
+  .portfolio-about__tech-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .portfolio-about__content {
+    padding: 48px 32px;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 600px) {
+  .portfolio-about {
+    padding: 12px;
+  }
+
+  .portfolio-about__wrapper {
+    border-radius: 16px;
+  }
+
+  .portfolio-about__tech-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .portfolio-about__tech-item {
+    min-height: 78px;
+  }
+
+  .portfolio-about__content {
+    padding: 36px 22px;
+  }
+
+  .portfolio-about__title {
+    font-size: 40px;
+  }
+
+  .portfolio-about__tabs {
+    gap: 22px;
+  }
+
+  .portfolio-about__tab {
+    font-size: 16px;
+  }
+
+  .portfolio-about__item {
+    align-items: flex-start;
   }
 }
 
