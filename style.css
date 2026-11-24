@@ -681,6 +681,17 @@ nav a:hover {
   line-height: 1.5;
 }
 
+.continuing {
+  font-style: italic;
+  color: black;
+}
+
+.app_name {
+  color: rgb(65, 228, 65);
+  font-size: larger;
+  font-weight: bolder;
+}
+
 /* ==========================================
    LARGE LAPTOP ADJUSTMENTS
 ========================================== */
@@ -909,7 +920,6 @@ nav a:hover {
 }
 /* ===================================================
    CONTACT SECTION
-   Scoped only to #contact
 =================================================== */
 
 #contact {
